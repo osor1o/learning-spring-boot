@@ -7,13 +7,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.learning.api.dtos.CompanyDto;
+import com.learning.api.responses.ExampleResponse;
 
 @RestController
 @RequestMapping("/api/companies")
 public class CompanyController {
 	@PostMapping
-	public ResponseEntity<CompanyDto> add(@RequestBody CompanyDto companyDto) {
+	public ResponseEntity<ExampleResponse<CompanyDto>> add(@RequestBody CompanyDto companyDto) {
+		ExampleResponse<CompanyDto> response = new ExampleResponse<CompanyDto>();
+		
 		companyDto.setId(1L);
-		return ResponseEntity.ok(companyDto);
+		response.setData(companyDto);
+		
+		return ResponseEntity.ok(response);
 	}
 }
