@@ -1,4 +1,4 @@
-CREATE TABLE employee (
+CREATE TABLE spring_test.employee (
 	id				BIGINT(20)	PRIMARY KEY		AUTO_INCREMENT,
 	name			VARCHAR(80)	NOT NULL,
 	password		VARCHAR(80)	NOT NULL,

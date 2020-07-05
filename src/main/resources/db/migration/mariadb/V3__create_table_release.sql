@@ -1,4 +1,4 @@
-CREATE TABLE release (
+CREATE TABLE spring_test.release (
 	id				BIGINT(20)		PRIMARY KEY		AUTO_INCREMENT,
 	date			TIMESTAMP		NOT NULL,
 	description		VARCHAR(255)	NOT NULL,

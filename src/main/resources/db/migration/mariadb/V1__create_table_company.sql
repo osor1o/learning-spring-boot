@@ -1,4 +1,4 @@
-CREATE TABLE company (
+CREATE TABLE spring_test.company (
 	id 				BIGINT(20) 		PRIMARY KEY		AUTO_INCREMENT,
 	cnpj 			VARCHAR(30) 	NOT NULL,
 	social_reason 	VARCHAR(255) 	NOT NULL,
