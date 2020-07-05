@@ -1,5 +1,9 @@
 package com.learning.api.dtos;
 
+import org.hibernate.validator.constraints.Length;
+import javax.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.br.CNPJ;
+
 public class CompanyDto {
 	private Long id;
 	private String socialReason;
@@ -16,6 +20,8 @@ public class CompanyDto {
 		this.id = id;
 	}
 
+	@NotBlank(message = "social reason is not empty.")
+	@Length(min = 5, max = 200, message = "social reason between 5 and 200")
 	public String getSocialReason() {
 		return socialReason;
 	}
@@ -24,6 +30,8 @@ public class CompanyDto {
 		this.socialReason = socialReason;
 	}
 
+	@NotBlank(message = "CNPJ is not empty.")
+	@CNPJ(message = "CNPJ invalid.")
 	public String getCnpj() {
 		return cnpj;
 	}
