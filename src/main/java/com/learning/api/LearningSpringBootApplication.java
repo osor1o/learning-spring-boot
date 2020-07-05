@@ -1,7 +1,7 @@
 package com.learning.api;
 
-import java.util.List;
-import java.util.Optional;
+// import java.util.List;
+// import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,8 +10,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.learning.api.entities.Company;
-import com.learning.api.repositories.CompanyRepository;
+// import com.learning.api.entities.Company;
+// import com.learning.api.repositories.CompanyRepository;
+import com.learning.api.services.ExampleService;
 
 @SpringBootApplication
 public class LearningSpringBootApplication {
@@ -19,8 +20,10 @@ public class LearningSpringBootApplication {
 	@Value("${pagination.n_items_per_pages}")
 	private int nItemsPerPage;
 	
+	// @Autowired
+	// private CompanyRepository companyRepository;
 	@Autowired
-	private CompanyRepository companyRepository;
+	private ExampleService exampleService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(LearningSpringBootApplication.class, args);
@@ -28,6 +31,10 @@ public class LearningSpringBootApplication {
 	
 	@Bean
 	public CommandLineRunner commandLineRunner() {
+		return args -> {
+			this.exampleService.testService();
+		};
+		/*
 		return args -> {
 			Company company = new Company();
 			company.setSocialReason("Test TI");
@@ -52,6 +59,7 @@ public class LearningSpringBootApplication {
 			companies = companyRepository.findAll();
 			System.out.println("Companies: " + companies.size());
 		};
+		*/
 	}
 
 }
