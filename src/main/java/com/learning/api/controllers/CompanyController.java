@@ -13,6 +13,7 @@ import com.learning.api.dtos.CompanyDto;
 public class CompanyController {
 	@PostMapping
 	public ResponseEntity<CompanyDto> add(@RequestBody CompanyDto companyDto) {
+		companyDto.setId(1L);
 		return ResponseEntity.ok(companyDto);
 	}
 }
